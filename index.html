@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HandCash Connect NodeJS Documentation</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link rel="stylesheet" href="theme-custom.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'HandCash Connect',
+      repo: 'https://github.com/HandCash/handcash-connect-sdk-nodejs',
+      basePath: '/docs/',
+      loadSidebar: true,
+      coverpage: '_cover.md',
+      homepage: 'getting-started.md',
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      themeable: {
+          readyTransition : true, // default
+          responsiveTables: true,  // default
+      },
+      search: {
+        noData: 'No Results!',
+      },
+      pagination: {
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      copyCode: {
+        buttonText : 'Copy to clipboard',
+        errorText  : 'Error',
+        successText: 'Copied'
+      },
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <!-- <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script> -->
+  <script src="//unpkg.com/docsify-copy-code"></script>
+</body>
+</html>
