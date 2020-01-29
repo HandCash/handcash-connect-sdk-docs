@@ -101,6 +101,8 @@ Attaching data into a payment improves the transparency and auditability in the 
 
 Content creators have a way to proof they are the original creators of the content. One way to build such a proof is **to sign the hash of the content with the user identity keys**. Notice that you actually don't need to store the content to proof the ownership, just the hash is enough.
 
+> **Explanation.** The signatures are stored in the blockchain which acts as a timestamp server. So, if user A signs "this is my comment" and also 5 minutes later user B signs the same message, the blockchain will tell us who is the actual owner of the content.
+
 As this signature is stored in a inmutable system and in cronologycal order, any possible fraud as someone trying to store a new signature of the content with their identity keys will be stored after the signature of the original creator. 
 
 > **Notice** that any proof of fraud will be also stored immutably.

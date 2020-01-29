@@ -4,10 +4,13 @@ Each HandCash user has their own identity. You can use this identities to make u
 
 You can use this identity to sign any piece of information and make the user the owner of it.
 
-> **Explanation.** The signatures are stored in the blockchain which acts as a timestamp server. So, if user A signs "this is my comment" and also 5 minutes later user B signs the same message, the blockchain will tell us who is the actual owner of the content.
+> This module is useful in case you need the user identity to sign data that is not stored in the blockchain. If you want to store the signatures in the blockchain, please refer to [attach data to payments](/payments.md#attach-data).
 
 ## Sign Data
 
+You can use the user identity to sign any piece of information, from simple strings to files. 
+
+This snippet shows how to sign a simple string:
 ```javascript
 const { HandCashCloudAccount, crypto } = require('handcash-connect');
 
@@ -25,7 +28,7 @@ console.log(dataSignature);
 
 ## Verify Ownership
 
-On the other hand, there is a way to validate ownership of data (signed data).
+On the other hand, there is a way to validate signed data (ownership of data).
 
 This snippet shows how to validate a signature for the current user cloud account:
 ```javascript
