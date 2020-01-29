@@ -1,6 +1,6 @@
 # Data Ownership
 
-Each HandCash user has their own identity. You can use this identities to make users owners of the information they produce: social media content, blogs, videos.
+Each HandCash user has their own identity. You can use these identities to make users owners of the information they produce: social media content, blogs, videos.
 
 You can use this identity to sign any piece of information and make the user the owner of it.
 

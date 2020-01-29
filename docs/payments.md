@@ -83,13 +83,13 @@ We support the following local currencies:
 
 <br>
 
-Additionally we support the following Bitcoin SV currencies:
+Additionally we support the following BitCoin SV currencies:
 
 | Currency Code     | Currency Name | Description                    |
 | ----------------- | ------------- | ------------------------------ |
 | SAT               | satoshis      | Indivisible unit               |
-| BSV               | bitcoins      | 1 bitcoin = 100000000 satoshis |
-| DUR (Recommended) | duros         | 1 duro = 5000 satoshis         |
+| BSV               | bitcoin       | 1 bitcoin = 100000000 satoshis |
+| DUR (Recommended) | duro          | 1 duro = 5000 satoshis         |
 
 ## Attach Data
 
@@ -103,7 +103,7 @@ Content creators have a way to proof they are the original creators of the conte
 
 > **Explanation.** The signatures are stored in the blockchain which acts as a timestamp server. So, if user A signs "this is my comment" and also 5 minutes later user B signs the same message, the blockchain will tell us who is the actual owner of the content.
 
-As this signature is stored in a inmutable system and in cronologycal order, any possible fraud as someone trying to store a new signature of the content with their identity keys will be stored after the signature of the original creator. 
+As this signature is stored in a inmutable system and in cronologycal order, any possible fraud as someone trying to store a new signature of the content with their identity keys will be stored after the signature of the original creator.
 
 > **Notice** that any proof of fraud will be also stored immutably.
 
