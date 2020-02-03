@@ -1,8 +1,6 @@
 # Data Ownership
 
-Each HandCash user has their own identity. You can use these identities to make users owners of the information they produce: social media content, blogs, videos.
-
-You can use this identity to sign any piece of information and make the user the owner of it.
+Each HandCash user has their own identity. You can use these identities to sign any piece of information, and assign them ownership over their content: social media content, blogs, videos.
 
 > This module is useful in case you need the user identity to sign data that is not stored in the blockchain. If you want to store the signatures in the blockchain, please refer to [attach data to payments](/payments.md#attach-data).
 
