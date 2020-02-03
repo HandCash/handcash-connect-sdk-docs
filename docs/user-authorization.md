@@ -2,33 +2,34 @@
 
 ## Overview
 
-Any Connect App requires previous consent from users in order to access to their profile and use their wallet capabilities. Once the permission is granted, the app is allowed to use the wallet capabilities. Noticed that this permission could be revoked by the users at some point.
+Connect Apps require consent from users in order to access to their profile and use their wallet capabilities. Once the permission is granted, the app is allowed to use the wallet capabilities. This permission can be revoked by the users at any point. 
 
-These are the steps users have to follow in order to authenticate any Connect App:
+Below are the steps each user will need to follow in order to authenticate with your Connect App:
 
-1. Once the users click "Connect to HandCash" the Connect App redirects the user to HandCash.
-2. The user will log into HandCash if needed (either in a website or native app).
+1. The user will click "Connect to HandCash" redirecting them to the HandCash login portal, or native app.
+2. The user will then log into HandCash if needed.
 3. HandCash will display the Connect App that is requesting authorization as well as the requested permissions.
-4. The user will Accept or Decline the access to the Connect App.
-5. HandCash will redirect the user back to the Connect App according to the action taken:
-  - **Accept Permissions** -> Authorization Success URL.
-  - **Decline Permissions** -> Authorization Failed URL.
+4. The user will Accept or Decline access to the Connect App.
+5. HandCash will then redirect the user back to the Connect App according to the action taken:
+
+- Accept Permissions -> Authorization Success URL.
+- Decline Permissions -> Authorization Failed URL.
 
 ![HandCash Authorization Flow](/../resources/images/handcash-connect-auth-flow.png)
 
 ## Permissions
 
-There are different authorization permissions. All the Connect app must request the permissions they need and users must grant such permission. This is the list of different permissions:
+There are different levels of permissions. Connect apps will need to request the permissions they want and users will be asked to grant those permissions. Below are the available permissions:
 
 | Name           | Description                                                             |
 | -------------- | ----------------------------------------------------------------------- |
-| Balance        | Grants access to get the users wallet balance.                          |
-| Payment        | Grants access to make payments on the users behalf.                     |
-| Signing        | Grants access to sign data using the user identity.                     |
-| PublicProfile  | Grants access to read the user `handle`, `displayName` and `avatarUrl`. |
-| PrivateProfile | Grants access to read the user profile details such as `email`.         |
+| Balance        | Grants access to get the user's wallet balance.                          |
+| Payment        | Grants access to make payments on the user's behalf.                     |
+| Signing        | Grants access to sign data using the user's identity.                     |
+| PublicProfile  | Grants access to read the user's `handle`, `displayName` and `avatarUrl`. |
+| PrivateProfile | Grants access to read the user's profile details such as `email`.         |
 
-Notice that the permission `PublicProfile` is granted by default, so all Connect Apps access to the following user properties:
+Note: `PublicProfile` is a default permission, meaning all Connect Apps will gain access to the following user properties:
 
 - **Handle** (stuk_91)
 - **Display Name** (Steven Urban K.)
@@ -36,9 +37,9 @@ Notice that the permission `PublicProfile` is granted by default, so all Connect
 
 ## Your App Authorization
 
-Connect SDK provides a method to build an URL that redirects the user to HandCash to log in an authorize your application. Once the authorization process has been completed, they will be redirected back to your app.
+Connect SDK provides a method to build a URL that redirects the user to the HandCash login portal. Once the authorization process has been completed, they will be redirected back to your app.
 
-This is code shows how to get the URL **you must use to redirect the user** to authorize your app:
+This code shows how to generate the URL that **you must use to redirect the user** in order to authorize your app:
 
 ```javascript
 const { AppAuthorization } = require('handcash-connect');
@@ -53,4 +54,4 @@ const redirectionLoginUrl = AppAuthorization.getRedirectionLoginUrl({
 
 ```
 
-?> Users will be accordingly redirected either to **Authorization Success URL** or **Authorization Failed URL** specified by your app in the `App Profile`.
+> Users will be redirected from the HandCash login portal back to either the **Authorization Success URL** or **Authorization Failed URL**, specified by your app in the `App Profile`.

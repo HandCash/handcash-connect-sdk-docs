@@ -1,15 +1,15 @@
 # User Profile
 
-HandCash Connects provides access to the user profile **as long as the user grants access**.
+HandCash Connect provides access to the user profile, **as long as the user grants access**.
 
-This properties are provided to help app developers with two aspects:
+These properties are provided to help app developers with two aspects:
 
 - Speed-up the sign-up process of the user with in new Connect Apps. No more sign-up forms!
-- Provide a more customized and contextual information to the user inside the Connect Apps, such as displaying amounts in the user local currency or available balance.
+- Provide more customized and contextual information to the user inside the Connect App, such as displaying amounts in the user's local currency or their available balance.
 
 ## Balance
 
-> This feature requires the [permission](/user-authorization.md#permissions) `Permissions.Balance`. Otherwise you will get an error.
+> This feature requires the [permission](/user-authorization.md#permissions) `Permissions.Balance`. Otherwise you will receive an error.
 
 ```javascript
 const balance = await cloudAccount.getBalance();
@@ -23,9 +23,9 @@ console.log(balance);
 
 ## Public profile
 
-User's public profile is accesible by default. This is useful a basic profile for your users inside your app.
+The user's public profile is accessible by default. This is useful for a basic profile for your users, inside your app.
 
-All Connect Apps access to the following user properties:
+All Connect Apps provide access to the following user properties:
 
 - **Handle** (stuk_91)
 - **Display Name** (Steven Urban K.)
@@ -43,7 +43,7 @@ console.log(userProfile.publicProfile());
 
 ## Private profile
 
-> This feature requires the [permission](/user-authorization.md#permissions) `Permissions.PrivateProfile`. Otherwise you will get an error.
+> This feature requires the [permission](/user-authorization.md#permissions) `Permissions.PrivateProfile`. Otherwise you will receive an error.
 
 ```javascript
 const userProfile = await cloudAccount.getProfile();
@@ -56,7 +56,7 @@ console.log(userProfile.getPrivateProfile());
 
 ## Preferences
 
-All Connect Apps access to the user preferences in order to offer a customized experience inside the apps.
+All Connect Apps will have access the user preferences in order to offer a customized experience inside the app.
 
 ```javascript
 const userProfile = await cloudAccount.getProfile();

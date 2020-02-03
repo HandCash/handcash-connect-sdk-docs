@@ -10,7 +10,7 @@ npm i handcash-connect-sdk
 
 ## Your first payment
 
-First of all, you need to create an instance of `CloudAccount`. This object allows you to interact with the SDK.
+To start, you will need to create an instance of `CloudAccount`. This object allows you to interact with the SDK.
 
 A `CloudAccount` requires the following:
 

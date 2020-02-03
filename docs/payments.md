@@ -28,7 +28,7 @@ You can add up to 200 people to the same payment. Also you can reference them us
 
 - **Handles** (eyeone): recommended to send between HandCash users.
 - **Paymails** (name@moneybutton.io, name@relayx.io, etc...): recommended to send to other services.
-- **P2SH Addresses**: recommended for custom transactions.
+- **P2PKH Addresses**: recommended for custom transactions.
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
