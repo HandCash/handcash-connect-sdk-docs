@@ -4,7 +4,7 @@
 
 We can use [Promise Payments](/promise-payments.md) to charge users per minute of content and claim the promise at the end of the playback.
 
-In this we show how to create a promise payment to charge users dynamically per each minute of video we provide. It shows how to charge:
+In this we show how to create a promise payment which charges users dynamically per each minute of video we provide. Below shows an example of two types of charges:
 
 - A fixed amount of \$0.02 for the streaming service (service fee).
 - A variable amount \$0.05 for each minute of video for the creator of the video.
@@ -76,12 +76,12 @@ const payments = [
     amount: totalFragmentsWatched * usdPerFragment
   }
 ];
-await cloudAccount.payments.updatePromisePayment(
-    promisePaymentId, {description, payments, receipt}
+const promisePaymentId = await cloudAccount.payments.promisePayment(
+{ description, payments, receipt }
 );
 ```
 
-**3) Once users sessions have ended and we consider they won't keep watching the video, we can claim the promise.**
+**3) Once the user's session has ended and we are sure they are done watching the video, we can claim the promise.**
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
@@ -95,7 +95,7 @@ const paymentId = await cloudAccount.payments.claimPromisePayment(
 
 ## **Case #2**: Social media app with micropayments
 
-You can use HandCash Connect to build a social media app that rewards content creators with instant payment for each interaction.
+You can use HandCash Connect to build a social media app that rewards content creators with instant payments for each interaction.
 
 **1) A user pays to create a post in the app.**
 
