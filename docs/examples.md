@@ -1,41 +1,104 @@
 # Examples
 
-## Example 1
+## **Case #1**: Charge \$0.05 for each minute of video
 
-``` javascript
-// {
-//      handCashPaymentId: "5d7acdb8b6875c00175c8fca", 
-//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601"
-// }
+We can use [Promised Payments](/promised-payments.md) to charge users per minute of content and claim the promise at the end of the playback.
 
+In this we show how to create a promised payment to charge users dynamically per each minute of video we provide. It shows how to charge:
+
+- A fixed amount of \$0.02 for the streaming service (service fee).
+- A variable amount \$0.05 for each minute of video for the creator of the video.
+
+1. We define the initial payment as well as the receipt to be attached to the payment.
+
+```javascript
+const { HandCashCloudAccount } = require('handcash-connect');
+
+const cloudAccount = new HandCashCloudAccount({...});
+
+const usdServiceFee = 0.02;
+const usdPerMinute = 0.05;
+const totalFragmentsWatched = 1;
+const description = 'Watch video #312195128';
+const receipt = {
+    id: '086b8346523f912ca1200b',
+    videoId: '1828172081',
+    title: 'Interview with Ihsotas Otomakan',
+    totalSecondsPurchased: 60 * totalFragmentsWatched
+};
+const payments = [
+  {
+      to: 'stream_service_handle',
+      currency: 'USD',
+      amount: service_fee
+  },
+  {
+    to: 'video_creator_handle',
+    currency: 'USD',
+    amount: totalFragmentsWatched * usd_per_30_seconds
+  }
+];
+const promisedPaymentId = await cloudAccount.payments.promisePayment(
+{ description, payments, receipt }
+);
 ```
 
-## Example 2
+2. We update the promised payment as we deliver more content to the user.
 
-``` javascript
-// {
-//      handCashPaymentId: "5d7acdb8b6875c00175c8fca", 
-//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601"
-// }
+`totalFragmentsWatched` goes from `1` to `8`.
 
+```javascript
+const { HandCashCloudAccount } = require('handcash-connect');
+
+const cloudAccount = new HandCashCloudAccount({...});
+
+const usdServiceFee = 0.02;
+const usdPerMinute = 0.05;
+const totalFragmentsWatched = 8;
+const description = 'Watch video #312195128';
+const receipt = {
+    id: '086b8346523f912ca1200b',
+    videoId: '1828172081',
+    title: 'Interview with Ihsotas Otomakan',
+    totalSecondsPurchased: 60 * totalFragmentsWatched
+};
+const payments = [
+  {
+      to: 'stream_service_handle',
+      currency: 'USD',
+      amount: service_fee
+  },
+  {
+    to: 'video_creator_handle',
+    currency: 'USD',
+    amount: totalFragmentsWatched * usdPerMinute
+  }
+];
+const promisedPaymentId = await cloudAccount.payments.promisePayment(
+{ description, payments, receipt }
+);
 ```
 
-## Example 3
+3. Once users sessions have ended and we consider they won't keep watching the video, we can claim the promise.
 
-``` javascript
-// {
-//      handCashPaymentId: "5d7acdb8b6875c00175c8fca", 
-//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601"
-// }
+```javascript
+const { HandCashCloudAccount } = require('handcash-connect');
 
+const cloudAccount = new HandCashCloudAccount({...});
+
+const paymentId = await cloudAccount.payments.claimPromisedPayment(
+  promisedPaymentId
+);
 ```
 
-## Example 4
+## **Case #2**: Charge to publish content in a social media app
 
-``` javascript
-// {
-//      handCashPaymentId: "5d7acdb8b6875c00175c8fca", 
-//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601"
-// }
+```javascript
+// TODO
+```
 
+## **Case #3**: --
+
+```javascript
+// TODO
 ```
