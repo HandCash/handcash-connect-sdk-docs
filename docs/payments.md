@@ -156,7 +156,7 @@ console.log(paymentConfirmation);
 
 ### Raw Storage
 
-Another way to attach data to payments is to simply attach data without transformations: no hash of the data, signing nor encryption.
+Another way to attach data to payments is to simply attach data without transformations: no data hash, signing nor encryption.
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
