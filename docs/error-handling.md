@@ -1,9 +1,5 @@
 # Error Handling
 
-``` javascript
-// {
-//      handCashPaymentId: "5d7acdb8b6875c00175c8fca", 
-//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601"
-// }
+>Coming soon...
 
-```
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/icjcAjM2T7wBi" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p></p>
