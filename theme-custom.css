@@ -38,8 +38,16 @@
     margin: .1rem 0;
 }
 
+.github-corner {
+    visibility: hidden;
+}
+
 :root {
     --base-font-size: 14px;
+    
+    --cover-background-color: white;
+    --cover-heading-color: #38CB7C;
+
     --theme-color: #38CB7C;
     --base-font-family: metropolis, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
@@ -47,7 +55,7 @@
     --sidebar-nav-link-color--active: #38CB7C;
     --sidebar-nav-link-text-decoration--active: none;
     --sidebar-border-width: 1px;
-
+    
     --search-margin: 1.5rem 0;
   }
   
