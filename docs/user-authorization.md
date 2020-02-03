@@ -11,15 +11,14 @@ These are the steps users have to follow in order to authenticate any Connect Ap
 3. HandCash will display the Connect App that is requesting authorization as well as the requested permissions.
 4. The user will Accept or Decline the access to the Connect App.
 5. HandCash will redirect the user back to the Connect App according to the action taken:
-
-- Accept Permissions -> Authorization Success URL.
-- Decline Permissions -> Authorization Failed URL.
+  - **Accept Permissions** -> Authorization Success URL.
+  - **Decline Permissions** -> Authorization Failed URL.
 
 ![HandCash Authorization Flow](/../resources/images/handcash-connect-auth-flow.png)
 
 ## Permissions
 
-There are different authorization permissions. All the Connect app must request the permissions they need and users must grant such permission. This is the list of the different permissions:
+There are different authorization permissions. All the Connect app must request the permissions they need and users must grant such permission. This is the list of different permissions:
 
 | Name           | Description                                                             |
 | -------------- | ----------------------------------------------------------------------- |
@@ -54,4 +53,4 @@ const redirectionLoginUrl = AppAuthorization.getRedirectionLoginUrl({
 
 ```
 
-> Users will be accordingly redirected either to **Authorization Success URL** or **Authorization Failed URL** specified by your app in the `App Profile`.
+?> Users will be accordingly redirected either to **Authorization Success URL** or **Authorization Failed URL** specified by your app in the `App Profile`.
