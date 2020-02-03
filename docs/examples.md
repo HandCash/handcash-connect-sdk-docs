@@ -9,7 +9,7 @@ In this we show how to create a promise payment to charge users dynamically per 
 - A fixed amount of \$0.02 for the streaming service (service fee).
 - A variable amount \$0.05 for each minute of video for the creator of the video.
 
-1. We define the initial payment as well as the receipt to be attached to the payment.
+**1) We define the initial payment as well as the receipt to be attached to the payment.**
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
@@ -44,7 +44,7 @@ const promisePaymentId = await cloudAccount.payments.promisePayment(
 );
 ```
 
-2. We update the promise payment as we deliver more content to the user.
+**2) We update the promise payment as we deliver more content to the user.**
 
 ?> We just need to change `totalFragmentsWatched` from `1` to `8`.
 
@@ -81,7 +81,7 @@ const promisePaymentId = await cloudAccount.payments.promisePayment(
 );
 ```
 
-3. Once users sessions have ended and we consider they won't keep watching the video, we can claim the promise.
+**3) Once users sessions have ended and we consider they won't keep watching the video, we can claim the promise.**
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
@@ -93,11 +93,11 @@ const paymentId = await cloudAccount.payments.claimPromisePayment(
 );
 ```
 
-## **Case #2**: Charge to publish content in a social media app
+## **Case #2**: Social media app with micropayments
 
 You can use HandCash Connect to build a social media app that rewards content creators with instant payment for each interaction.
 
-1. The user pays to create a post in the app.
+**1) The user pays to create a post in the app.**
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
@@ -122,7 +122,7 @@ console.log(paymentConfirmation);
 // }
 ```
 
-2. Like a post.
+**2) Like a post.**
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
@@ -148,7 +148,7 @@ console.log(paymentConfirmation);
 // }
 ```
 
-2. Comment a post.
+**3) Comment a post.**
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
@@ -158,9 +158,7 @@ const cloudAccount = new HandCashCloudAccount({...});
 const userContent = 'This is a game changer!';
 
 const description = 'Like a post';
-const payments: [
-  { to: 'service.handle', currency: 'USD', amount: 0.03 }
-];
+const payments: [{ to: 'service.handle', currency: 'USD', amount: 0.03 }];
 const data = Data.fromObject({
     id: '18c81001a09e816381aa',
     type: 'comment'
