@@ -51,7 +51,7 @@ const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
 const usdPerMinute = 0.05;
-const totalMinutesWatched = 1;
+const totalMinutesWatched = 5;
 const description = 'Watch video #312195128';
 const payments = [
   { 
