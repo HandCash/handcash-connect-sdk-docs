@@ -89,7 +89,6 @@ Additionally we support the following BitCoin SV currencies:
 | ----------------- | ------------- | ------------------------------ |
 | SAT               | satoshis      | Indivisible unit               |
 | BSV               | bitcoin       | 1 bitcoin = 100000000 satoshis |
-| DUR (Recommended) | duro          | 1 duro = 5000 satoshis         |
 
 ## Attach Data
 
