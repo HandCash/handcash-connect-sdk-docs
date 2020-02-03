@@ -1,6 +1,6 @@
 # Instant Payments
 
-HandCash allows you to pay to anyone in the world instantly and without intermediaries.
+HandCash allows you to pay to anyone in the world instantly without intermediaries.
 
 ## Simple Payment
 
@@ -24,7 +24,7 @@ console.log(paymentConfirmation);
 
 ## Pay to multiple people
 
-You can add up to 200 people to the same payment. Also you can reference them using:
+You may add up to 200 people to the same payment. Also you may reference them using:
 
 - **Handles** (eyeone): recommended to send between HandCash users.
 - **Paymails** (name@moneybutton.io, name@relayx.io, etc...): recommended to send to other services.
@@ -92,19 +92,19 @@ Additionally we support the following BitCoin SV currencies:
 
 ## Attach Data
 
-In addition to transfer money between people you can attach data to payments. This data is inmutable: stored forever and with no chance to modify a single bit.
+In addition to transfering money between people, you may attach data to payments. This data is inmutable: stored forever and with no chance to modify a single bit.
 
-Attaching data into a payment improves the transparency and auditability in the exchange of money for information. These are some use cases.
+Attaching data into a payment improves the transparency and auditability in the exchange of money for information. These are many possible use cases for this.
 
 ### Content creators
 
-Content creators have a way to proof they are the original creators of the content. One way to build such a proof is **to sign the hash of the content with the user identity keys**. Notice that you actually don't need to store the content to proof the ownership, just the hash is enough.
+Content creators have a way to prove they are the original creators of the content. One way to build such a proof is **to sign the hash of the content with the user identity keys**. Note that you actually don't need to store the actual content to prove ownership, just the hash is enough.
 
 > **Explanation.** The signatures are stored in the blockchain which acts as a timestamp server. So, if user A signs "this is my comment" and also 5 minutes later user B signs the same message, the blockchain will tell us who is the actual owner of the content.
 
-As this signature is stored in a inmutable system and in cronologycal order, any possible fraud as someone trying to store a new signature of the content with their identity keys will be stored after the signature of the original creator.
+As this signature is stored in a inmutable system and in cronologycal order, any possible fraud, such as someone trying to store a new signature of the content with their identity keys, will be recorded after the signature from the original creator.
 
-> **Notice** that any proof of fraud will be also stored immutably.
+> **Note:** any proof of fraud will also be stored immutably.
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
@@ -127,10 +127,10 @@ console.log(paymentConfirmation);
 
 ### Content providers
 
-Services that provide content (aka content providers) can attach signed receipts at the same time they charge users. Two interesting features of this approach:
+Services that provide content (aka content providers) can attach signed receipts at the same time they charge users. This helps with two aspects:
 
 - In case of dispute or misunderstanding, the service can make clear what the exchange of information was.
-- The receipts provide users a context and details about the payment.
+- The receipt provides the user with context and details for the payment.
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
@@ -155,7 +155,7 @@ console.log(paymentConfirmation);
 
 ### Raw Storage
 
-Another way to attach data to payments is to simply attach data without transformations: no data hash, signing nor encryption.
+Another way to attach data to payments, is to simply attach raw data: no hashing, signing, or encryption.
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');

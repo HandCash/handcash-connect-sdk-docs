@@ -15,7 +15,7 @@ To start, you will need to create an instance of `CloudAccount`. This object all
 A `CloudAccount` requires the following:
 
 - **application credentials**: `appId` and `appSecret`. Don't have them yet? [Get your app credentials.](https://github.com/HandCash/handcash-connect-sdk-nodejs/)
-- **userAuthorizationToken**: It represents the authorization users grant to your application in order to access to their _HandCash Account_. [Find more about the user authorization process.](user-authorization.md)
+- **userAuthorizationToken**: represents the authorization granted by the user to your application, this may be used to access to their _HandCash Account_. [Find more about the user authorization process.](user-authorization.md)
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
