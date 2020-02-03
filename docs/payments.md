@@ -28,7 +28,7 @@ You can add up to 200 people to the same payment. Also you can reference them us
 
 - **Handles** (eyeone): recommended to send between HandCash users.
 - **Paymails** (name@moneybutton.io, name@relayx.io, etc...): recommended to send to other services.
-- **P2SH Addresses**: recommended for very custom transactions.
+- **P2SH Addresses**: recommended for custom transactions.
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
@@ -108,7 +108,7 @@ As this signature is stored in a inmutable system and in cronologycal order, any
 > **Notice** that any proof of fraud will be also stored immutably.
 
 ```javascript
-const { HandCashCloudAccount, crypto } = require('handcash-connect');
+const { HandCashCloudAccount, Data } = require('handcash-connect');
 
 const cloudAccount = new HandCashCloudAccount({...});
 
@@ -116,7 +116,7 @@ const userComment = 'HandCash Connect SDK is awesome!';
 
 const description = 'Post a comment';
 const payments: [{ to: 'service.handle', currency: 'USD', amount: 0.05 }];
-const data = { type: 'sign', rawDataAsHex: crypto.getStringHashAsHex(userComment) };
+const data = Data.fromString(userComment).hash().sign();
 
 const paymentConfirmation = await cloudAccount.payments.pay({description, payments, data});
 console.log(paymentConfirmation);
@@ -128,4 +128,50 @@ console.log(paymentConfirmation);
 
 ### Content providers
 
-### Simple Storage
+Services that provide content (aka content providers) can attach signed receipts at the same time they charge users. Two interesting features of this approach:
+
+- In case of dispute or misunderstanding, the service can make clear what the exchange of information was.
+- The receipts provide users a context and details about the payment.
+
+```javascript
+const { HandCashCloudAccount, Data } = require('handcash-connect');
+
+const cloudAccount = new HandCashCloudAccount({...});
+
+const description = 'Watch video #1828172081';
+const payments: [
+    { to: 'service.handle', currency: 'USD', amount: 0.01 },
+    { to: 'videoCreator.handle', currency: 'USD', amount: 0.05 }
+];
+const receipt = {id: '086b8346523f912ca1200b', videoId: '1828172081', title: 'Interview with Ihsotas Otomakan'};
+const data = Data.fromObject(contract).sign();
+
+const paymentConfirmation = await cloudAccount.payments.pay({description, payments, data});
+console.log(paymentConfirmation);
+// {
+//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601",
+//      date: "2019-01-20T18:23:02.412Z"
+// }
+```
+
+### Raw Storage
+
+Another way to attach data to payments is to simply attach data without transformations: no hash of the data, signing nor encryption.
+
+```javascript
+const { HandCashCloudAccount, Data } = require('handcash-connect');
+
+const cloudAccount = new HandCashCloudAccount({...});
+
+const description = 'Store my document';
+const payments: [{ to: 'service.handle', currency: 'USD', amount: 0.02 }];
+const document = {id: '086b8346523f912ca1200b', propertyOne: 18282.2, propertyTwo: 'red', propertyThree: false};
+const data = Data.fromObject(document);
+
+const paymentConfirmation = await cloudAccount.payments.pay({description, payments, data});
+console.log(paymentConfirmation);
+// {
+//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601",
+//      date: "2019-01-20T18:23:02.412Z"
+// }
+```
