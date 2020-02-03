@@ -8,7 +8,7 @@ First of all, you need to create a promised payment with some initial parameters
 
 This is an example of how to create a promised payment to charge users as a stream service. It shows how to charge:
 - A fixed amount of $0.02 for the stream service (service fee).
-- A variable amount $0.05 for each 30 seconds of video for the creator of the video.
+- A variable amount $0.05 for each minute of video for the creator of the video.
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
@@ -16,7 +16,7 @@ const { HandCashCloudAccount } = require('handcash-connect');
 const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
-const usdPer30Seconds = 0.05;
+const usdPerMinute = 0.05;
 const totalFragmentsWatched = 1;
 const description = 'Watch video #312195128';
 const payments = [
@@ -28,7 +28,7 @@ const payments = [
   {
     to: 'video_creator_handle',
     currency: 'USD',
-    amount: totalFragmentsWatched * usd_per_30_seconds
+    amount: totalFragmentsWatched * usdPerMinute
   }
 ];
 const promisedPaymentId = await cloudAccount.payments.promisePayment(
@@ -50,8 +50,8 @@ const { HandCashCloudAccount } = require('handcash-connect');
 const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
-const usdPer30Seconds = 0.05;
-const totalFragmentsWatched = 5; // 30 seconds * 5 = watched until second 150
+const usdPerMinute = 0.05;
+const totalFragmentsWatched = 5;
 const description = 'Watch video #312195128';
 const payments = [
   { 
@@ -62,7 +62,7 @@ const payments = [
   {
     to: 'video_creator_handle',
     currency: 'USD',
-    amount: totalFragmentsWatched * usd_per_30_seconds
+    amount: totalFragmentsWatched * usdPerMinute
   }
 ];
 await cloudAccount.payments.updatePromisedPayment(
