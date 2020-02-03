@@ -25,8 +25,8 @@
   - [Claim a promise](promised-payments.md#claim-a-promise)
 
 - [Data Ownership](data-ownership.md)
-  - [Sign data](data-ownership.md#sign)
-  - [Verify owner](data-ownership.md#overview)
+  - [Sign data](data-ownership.md#sign-data)
+  - [Verify ownership](data-ownership.md#verify-ownership)
 
 - [Error Handling](error-handling.md)
 - [Examples](examples.md)
