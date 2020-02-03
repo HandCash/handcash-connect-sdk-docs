@@ -46,7 +46,7 @@ const promisePaymentId = await cloudAccount.payments.promisePayment(
 
 2. We update the promise payment as we deliver more content to the user.
 
-`totalFragmentsWatched` goes from `1` to `8`.
+?> We just need to change `totalFragmentsWatched` from `1` to `8`.
 
 ```javascript
 const { HandCashCloudAccount } = require('handcash-connect');
@@ -55,7 +55,7 @@ const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
 const usdPerFragment = 0.05;
-const totalFragmentsWatched = 1;
+const totalFragmentsWatched = 8;
 const totalSecondsPerFragments = 60;
 const description = 'Watch video #312195128';
 const receipt = {
