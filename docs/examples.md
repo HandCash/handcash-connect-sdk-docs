@@ -76,8 +76,8 @@ const payments = [
     amount: totalFragmentsWatched * usdPerFragment
   }
 ];
-const promisePaymentId = await cloudAccount.payments.promisePayment(
-{ description, payments, receipt }
+await cloudAccount.payments.updatePromisePayment(
+    promisePaymentId, {description, payments, receipt}
 );
 ```
 

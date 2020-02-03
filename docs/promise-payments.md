@@ -68,9 +68,6 @@ const payments = [
 await cloudAccount.payments.updatePromisePayment(
     promisePaymentId, {description, payments}
 );
-const paymentId = await cloudAccount.payments.claimPromisePayment(
-  promisePaymentId
-);
 ```
 
 ## Claim a promise
