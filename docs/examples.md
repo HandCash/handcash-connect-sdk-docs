@@ -173,9 +173,3 @@ console.log(paymentConfirmation);
 //      date: "2019-01-20T18:23:02.412Z"
 // }
 ```
-
-## **Case #3**: --
-
-```javascript
-// TODO
-```
