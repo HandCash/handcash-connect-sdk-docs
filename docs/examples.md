@@ -95,8 +95,85 @@ const paymentId = await cloudAccount.payments.claimPromisePayment(
 
 ## **Case #2**: Charge to publish content in a social media app
 
+You can use HandCash Connect to build a social media app that rewards content creators with instant payment for each interaction.
+
+1. The user pays to create a post in the app.
+
 ```javascript
-// TODO
+const { HandCashCloudAccount, Data } = require('handcash-connect');
+
+const cloudAccount = new HandCashCloudAccount({...});
+
+const userContent = 'HandCash Connect SDK is awesome!';
+
+const description = 'Create a post';
+const payments: [{ to: 'service.handle', currency: 'USD', amount: 0.05 }];
+const data = Data.fromObject({
+    id: '27a7c7c77102de901921',
+    type: 'post',
+    content: userContent
+}).sign();
+
+const paymentConfirmation = await cloudAccount.payments.pay({description, payments, data});
+console.log(paymentConfirmation);
+// {
+//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601",
+//      date: "2019-01-20T18:23:02.412Z"
+// }
+```
+
+2. Like a post.
+
+```javascript
+const { HandCashCloudAccount, Data } = require('handcash-connect');
+
+const cloudAccount = new HandCashCloudAccount({...});
+
+const description = 'Like a post';
+const payments: [
+  { to: 'service.handle', currency: 'USD', amount: 0.01 }
+  { to: 'post.creator.handle', currency: 'USD', amount: 0.01 }
+];
+const data = Data.fromObject({
+    id: '76c100aeca0127127172',
+    type: 'like'
+    referencedPostId: '27a7c7c77102de901921'
+}).sign();
+
+const paymentConfirmation = await cloudAccount.payments.pay({description, payments, data});
+console.log(paymentConfirmation);
+// {
+//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601",
+//      date: "2019-01-20T18:23:02.412Z"
+// }
+```
+
+2. Comment a post.
+
+```javascript
+const { HandCashCloudAccount, Data } = require('handcash-connect');
+
+const cloudAccount = new HandCashCloudAccount({...});
+
+const userContent = 'This is a game changer!';
+
+const description = 'Like a post';
+const payments: [
+  { to: 'service.handle', currency: 'USD', amount: 0.03 }
+];
+const data = Data.fromObject({
+    id: '18c81001a09e816381aa',
+    type: 'comment'
+    referencedPostId: '27a7c7c77102de901921'
+    content: userContent
+}).sign();
+
+const paymentConfirmation = await cloudAccount.payments.pay({description, payments, data});
+console.log(paymentConfirmation);
+// {
+//      transactionId: "8db02465200a0aec733f046b86b0ee0847e66d7cd451e198b25c493346ca4601",
+//      date: "2019-01-20T18:23:02.412Z"
+// }
 ```
 
 ## **Case #3**: --
