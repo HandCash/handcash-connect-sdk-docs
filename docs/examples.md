@@ -97,7 +97,7 @@ const paymentId = await cloudAccount.payments.claimPromisePayment(
 
 You can use HandCash Connect to build a social media app that rewards content creators with instant payment for each interaction.
 
-**1) The user pays to create a post in the app.**
+**1) A user pays to create a post in the app.**
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
@@ -122,7 +122,7 @@ console.log(paymentConfirmation);
 // }
 ```
 
-**2) Like a post.**
+**2) A user likes a post and pays both the platform and the creator of the post.**
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
@@ -148,7 +148,7 @@ console.log(paymentConfirmation);
 // }
 ```
 
-**3) Comment a post.**
+**3) A user comments a post and pays the platform.**
 
 ```javascript
 const { HandCashCloudAccount, Data } = require('handcash-connect');
