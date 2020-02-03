@@ -1,12 +1,12 @@
-# Promised Payments
+# Promise Payments
 
-Promised payments are similar to [instant payments](/payments.md). The difference is that with promised payment you can commit the money to be spent and additionally update the payment, changing parameters as amounts or data attached. Eventually you claim the promise to make the payment effective.
+Promise payments are similar to [instant payments](/payments.md). The difference is that with promise payment you can commit the money to be spent and additionally update the payment, changing parameters as amounts or data attached. Eventually you claim the promise to make the payment effective.
 
 ## Create a promise
 
-First of all, you need to create a promised payment with some initial parameters.
+First of all, you need to create a promise payment with some initial parameters.
 
-This is an example of how to create a promised payment to charge users as a stream service. It shows how to charge:
+This is an example of how to create a promise payment to charge users as a stream service. It shows how to charge:
 - A fixed amount of $0.02 for the stream service (service fee).
 - A variable amount $0.05 for each minute of video for the creator of the video.
 
@@ -31,16 +31,16 @@ const payments = [
     amount: totalFragmentsWatched * usdPerMinute
   }
 ];
-const promisedPaymentId = await cloudAccount.payments.promisePayment(
+const promisePaymentId = await cloudAccount.payments.promisePayment(
     { description, payments }
 );
 ```
 
-You can use the `promisedPaymentId` to [claim a promise](#claim-a-promise) anytime.
+You can use the `promisePaymentId` to [claim a promise](#claim-a-promise) anytime.
 
 ## Update a promise
 
-You can change any parameter of the promised payment anytime. You can change the amounts of the payments, add more payments, add or change the data attached...
+You can change any parameter of the promise payment anytime. You can change the amounts of the payments, add more payments, add or change the data attached...
 
 Keeping with the example of the stream service, this snippet shows how to update the amount that goes for the video creator depending on the seconds of video watched.
 
@@ -65,11 +65,11 @@ const payments = [
     amount: totalFragmentsWatched * usdPerMinute
   }
 ];
-await cloudAccount.payments.updatePromisedPayment(
-    promisedPaymentId, {description, payments}
+await cloudAccount.payments.updatePromisePayment(
+    promisePaymentId, {description, payments}
 );
-const paymentId = await cloudAccount.payments.claimPromisedPayment(
-  promisedPaymentId
+const paymentId = await cloudAccount.payments.claimPromisePayment(
+  promisePaymentId
 );
 ```
 
@@ -82,9 +82,9 @@ const { HandCashCloudAccount } = require('handcash-connect');
 
 const cloudAccount = new HandCashCloudAccount({...});
 
-const paymentId = await cloudAccount.payments.claimPromisedPayment(
-  promisedPaymentId
+const paymentId = await cloudAccount.payments.claimPromisePayment(
+  promisePaymentId
 );
 ```
 
-> **Notice** that once you claim the payment you can't update it anymore. In any case, you should create a new promised payment.
+> **Notice** that once you claim the payment you can't update it anymore. In any case, you should create a new promise payment.

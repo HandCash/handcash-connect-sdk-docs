@@ -2,9 +2,9 @@
 
 ## **Case #1**: Charge \$0.05 for each minute of video
 
-We can use [Promised Payments](/promised-payments.md) to charge users per minute of content and claim the promise at the end of the playback.
+We can use [Promise Payments](/promise-payments.md) to charge users per minute of content and claim the promise at the end of the playback.
 
-In this we show how to create a promised payment to charge users dynamically per each minute of video we provide. It shows how to charge:
+In this we show how to create a promise payment to charge users dynamically per each minute of video we provide. It shows how to charge:
 
 - A fixed amount of \$0.02 for the streaming service (service fee).
 - A variable amount \$0.05 for each minute of video for the creator of the video.
@@ -38,12 +38,12 @@ const payments = [
     amount: totalFragmentsWatched * usd_per_30_seconds
   }
 ];
-const promisedPaymentId = await cloudAccount.payments.promisePayment(
+const promisePaymentId = await cloudAccount.payments.promisePayment(
 { description, payments, receipt }
 );
 ```
 
-2. We update the promised payment as we deliver more content to the user.
+2. We update the promise payment as we deliver more content to the user.
 
 `totalFragmentsWatched` goes from `1` to `8`.
 
@@ -74,7 +74,7 @@ const payments = [
     amount: totalFragmentsWatched * usdPerMinute
   }
 ];
-const promisedPaymentId = await cloudAccount.payments.promisePayment(
+const promisePaymentId = await cloudAccount.payments.promisePayment(
 { description, payments, receipt }
 );
 ```
@@ -86,8 +86,8 @@ const { HandCashCloudAccount } = require('handcash-connect');
 
 const cloudAccount = new HandCashCloudAccount({...});
 
-const paymentId = await cloudAccount.payments.claimPromisedPayment(
-  promisedPaymentId
+const paymentId = await cloudAccount.payments.claimPromisePayment(
+  promisePaymentId
 );
 ```
 

@@ -19,10 +19,10 @@
   - [Supported Currencies](payments.md#supported-currencies)
   - [Attach data](payments.md#attach-data)
 
-- [Promised Payments](promised-payments.md)
-  - [Create a promise](promised-payments.md#create-a-promise)
-  - [Update a promise](promised-payments.md#update-a-promise)
-  - [Claim a promise](promised-payments.md#claim-a-promise)
+- [Promise Payments](promise-payments.md)
+  - [Create a promise](promise-payments.md#create-a-promise)
+  - [Update a promise](promise-payments.md#update-a-promise)
+  - [Claim a promise](promise-payments.md#claim-a-promise)
 
 - [Data Ownership](data-ownership.md)
   - [Sign data](data-ownership.md#sign-data)
