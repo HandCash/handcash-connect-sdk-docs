@@ -17,7 +17,7 @@ const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
 const usdPerMinute = 0.05;
-const totalFragmentsWatched = 1;
+const totalMinutesWatched = 1;
 const description = 'Watch video #312195128';
 const payments = [
   { 
@@ -28,7 +28,7 @@ const payments = [
   {
     to: 'video_creator_handle',
     currency: 'USD',
-    amount: totalFragmentsWatched * usdPerMinute
+    amount: totalMinutesWatched * usdPerMinute
   }
 ];
 const promisePaymentId = await cloudAccount.payments.promisePayment(
@@ -51,7 +51,7 @@ const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
 const usdPerMinute = 0.05;
-const totalFragmentsWatched = 5;
+const totalMinutesWatched = 1;
 const description = 'Watch video #312195128';
 const payments = [
   { 
@@ -62,7 +62,7 @@ const payments = [
   {
     to: 'video_creator_handle',
     currency: 'USD',
-    amount: totalFragmentsWatched * usdPerMinute
+    amount: totalMinutesWatched * usdPerMinute
   }
 ];
 await cloudAccount.payments.updatePromisePayment(

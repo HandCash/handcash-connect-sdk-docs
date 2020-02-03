@@ -17,14 +17,15 @@ const { HandCashCloudAccount } = require('handcash-connect');
 const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
-const usdPerMinute = 0.05;
+const usdPerFragment = 0.05;
 const totalFragmentsWatched = 1;
+const totalSecondsPerFragments = 60;
 const description = 'Watch video #312195128';
 const receipt = {
     id: '086b8346523f912ca1200b',
     videoId: '1828172081',
     title: 'Interview with Ihsotas Otomakan',
-    totalSecondsPurchased: 60 * totalFragmentsWatched
+    totalSecondsPurchased: totalSecondsPerFragments * totalFragmentsWatched
 };
 const payments = [
   {
@@ -35,7 +36,7 @@ const payments = [
   {
     to: 'video_creator_handle',
     currency: 'USD',
-    amount: totalFragmentsWatched * usd_per_30_seconds
+    amount: totalFragmentsWatched * usdPerFragment
   }
 ];
 const promisePaymentId = await cloudAccount.payments.promisePayment(
@@ -53,14 +54,15 @@ const { HandCashCloudAccount } = require('handcash-connect');
 const cloudAccount = new HandCashCloudAccount({...});
 
 const usdServiceFee = 0.02;
-const usdPerMinute = 0.05;
-const totalFragmentsWatched = 8;
+const usdPerFragment = 0.05;
+const totalFragmentsWatched = 1;
+const totalSecondsPerFragments = 60;
 const description = 'Watch video #312195128';
 const receipt = {
     id: '086b8346523f912ca1200b',
     videoId: '1828172081',
     title: 'Interview with Ihsotas Otomakan',
-    totalSecondsPurchased: 60 * totalFragmentsWatched
+    totalSecondsPurchased: totalSecondsPerFragments * totalFragmentsWatched
 };
 const payments = [
   {
@@ -71,7 +73,7 @@ const payments = [
   {
     to: 'video_creator_handle',
     currency: 'USD',
-    amount: totalFragmentsWatched * usdPerMinute
+    amount: totalFragmentsWatched * usdPerFragment
   }
 ];
 const promisePaymentId = await cloudAccount.payments.promisePayment(
