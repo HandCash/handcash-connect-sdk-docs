@@ -28,5 +28,9 @@
   - [Sign data](data-ownership.md#sign-data)
   - [Verify ownership](data-ownership.md#verify-ownership)
 
+- [Data Encryption](data-encryption.md)
+  - [User-to-User](data-encryption.md#user-to-user)
+  - [User-to-App](data-encryption.md#user-to-App)
+
 - [Error Handling](error-handling.md)
 - [Examples](examples.md)
